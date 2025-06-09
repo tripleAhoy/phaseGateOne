@@ -28,7 +28,7 @@ function validateCard() {
     }
 
     const type = getCardType(number);
-    const valid = luhnCheck(number);
+    const valid = validCheck(number);
 
     console.log("Card Type:", type);
     console.log("Status:", valid ? "VALID" : "INVALID");
