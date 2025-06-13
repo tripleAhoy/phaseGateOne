@@ -19,7 +19,7 @@ public class StudentGradesApp {
 		displayClassReport(studentNames, studentGrades);
 	}
 
-	private static int getPositiveInput(Scanner input) {
+	public static int getPositiveInput(Scanner input) {
 		int value;
 		do {
 			System.out.print("Enter a positive integer: ");
@@ -33,7 +33,7 @@ public class StudentGradesApp {
 		return value;
 	}
 
-	private static void collectStudentData(Scanner input, String[] studentNames, int[][] studentGrades) {
+	public static void collectStudentData(Scanner input, String[] studentNames, int[][] studentGrades) {
 		for(int count = 0; count < studentNames.length; count++) {
 			System.out.print("Enter name for student " + (count+1) + ": ");
 			studentNames[count] = input.next();
@@ -45,7 +45,7 @@ public class StudentGradesApp {
 		}
 	}
 
-	private static int getValidScore(Scanner input) {
+	public static int getValidScore(Scanner input) {
 		int score = input.nextInt();
 		while(score < 0 || score > 100) {
 			System.out.print("Invalid score! Enter a value between (0-100): ");
@@ -54,7 +54,7 @@ public class StudentGradesApp {
 		return score;
 	}
 
-	private static void displayClassReport(String[] studentNames, int[][] studentGrades) {
+	public static void displayClassReport(String[] studentNames, int[][] studentGrades) {
 		int numStudents = studentNames.length;
 		int numSubjects = studentGrades[0].length;
 
@@ -68,7 +68,7 @@ public class StudentGradesApp {
 		printClassStatistics(studentNames, studentGrades, totals);
 	}
 
-	private static int[] calculateTotals(int[][] studentGrades) {
+	public static int[] calculateTotals(int[][] studentGrades) {
 		int[] totals = new int[studentGrades.length];
 		for (int count = 0; count < studentGrades.length; count++) {
 			for (int grade : studentGrades[count]) {
@@ -78,7 +78,7 @@ public class StudentGradesApp {
 		return totals;
 	}
 
-	private static double[] calculateAverages(int[] totals, int numSubjects) {
+	public static double[] calculateAverages(int[] totals, int numSubjects) {
 		double[] averages = new double[totals.length];
 		for (int count = 0; count < totals.length; count++) {
 			averages[count] = (double) totals[count] / numSubjects;
@@ -86,7 +86,7 @@ public class StudentGradesApp {
 		return averages;
 	}
 
-	private static int[] calculatePositions(int[] totals) {
+	public static int[] calculatePositions(int[] totals) {
 		Integer[] indices = new Integer[totals.length];
 		for (int count = 0; count < totals.length; count++) {
 			indices[count] = count;
@@ -106,7 +106,7 @@ public class StudentGradesApp {
 		return positions;
 	}
 
-	private static void printReportHeader(int numStudents, int numSubjects) {
+	public static void printReportHeader(int numStudents, int numSubjects) {
 		System.out.println("\nClass Summary Report");
 		System.out.println("====================");
 		System.out.printf("Number of Students: %d%n", numStudents);
@@ -120,7 +120,7 @@ public class StudentGradesApp {
 		System.out.println("Total\tAverage\tPosition");
 	}
 
-	private static void printStudentResults(String[] studentNames, int[][] studentGrades, int[] totals, double[] averages, int[] positions) {
+	public static void printStudentResults(String[] studentNames, int[][] studentGrades, int[] totals, double[] averages, int[] positions) {
 		for (int i = 0; i < studentNames.length; i++) {
 			System.out.print(studentNames[i] + "\t\t");
 			for (int grade : studentGrades[i]) {
@@ -131,7 +131,7 @@ public class StudentGradesApp {
 	}
 
 	
-	private static void printSubjectSummaries(String[] studentNames, int[][] studentGrades) {
+	public static void printSubjectSummaries(String[] studentNames, int[][] studentGrades) {
 		System.out.println("\nSubject Summary");
 		System.out.println("===============");
 
@@ -173,7 +173,7 @@ public class StudentGradesApp {
 		}
 	}
 
-	private static void printClassStatistics(String[] studentNames, int[][] studentGrades, int[] totals) {
+	public static void printClassStatistics(String[] studentNames, int[][] studentGrades, int[] totals) {
 		System.out.println("\nClass Statistics");
 		System.out.println("================");
 
